@@ -1,0 +1,924 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ashmeet Singh - Cybersecurity Professional</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #0a0e14;
+            --bg-secondary: #0d1117;
+            --bg-card: #161b22;
+            --accent-primary: #00ff88;
+            --accent-secondary: #00d4ff;
+            --accent-danger: #ff3864;
+            --text-primary: #e6edf3;
+            --text-secondary: #8b949e;
+            --border-subtle: #30363d;
+            --shadow-glow: rgba(0, 255, 136, 0.15);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'JetBrains Mono', monospace;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(var(--border-subtle) 1px, transparent 1px),
+                linear-gradient(90deg, var(--border-subtle) 1px, transparent 1px);
+            background-size: 50px 50px;
+            opacity: 0.1;
+            z-index: -1;
+            animation: gridScroll 20s linear infinite;
+        }
+
+        @keyframes gridScroll {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(50px); }
+        }
+
+        .glow-orb {
+            position: fixed;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, var(--accent-primary) 0%, transparent 70%);
+            opacity: 0.08;
+            pointer-events: none;
+            animation: float 15s ease-in-out infinite;
+            z-index: -1;
+        }
+
+        .glow-orb:nth-child(2) {
+            right: -200px;
+            top: 30%;
+            background: radial-gradient(circle, var(--accent-secondary) 0%, transparent 70%);
+            animation-delay: -7s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0); }
+            50% { transform: translate(-100px, 100px); }
+        }
+
+        header {
+            padding: 3rem 2rem;
+            text-align: center;
+            border-bottom: 1px solid var(--border-subtle);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header-content {
+            max-width: 900px;
+            margin: 0 auto;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 16px;
+            background: var(--bg-card);
+            border: 1px solid var(--accent-primary);
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 1.5rem;
+            animation: fadeInUp 0.8s ease-out 0.2s backwards;
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--accent-primary);
+            border-radius: 50%;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(0.8); }
+        }
+
+        h1 {
+            font-family: 'Syne', sans-serif;
+            font-size: 4rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+            line-height: 1.1;
+            animation: fadeInUp 0.8s ease-out 0.3s backwards;
+        }
+
+        .subtitle {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            animation: fadeInUp 0.8s ease-out 0.4s backwards;
+        }
+
+        .contact-links {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 0.8s ease-out 0.5s backwards;
+        }
+
+        .contact-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            padding: 8px 16px;
+            border-radius: 6px;
+            border: 1px solid transparent;
+        }
+
+        .contact-links a:hover {
+            color: var(--accent-primary);
+            border-color: var(--accent-primary);
+            transform: translateY(-2px);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .section {
+            margin-bottom: 5rem;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .section-number {
+            font-family: 'Syne', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--accent-primary);
+            opacity: 0.3;
+        }
+
+        .section-title {
+            font-family: 'Syne', sans-serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 3rem;
+            align-items: start;
+        }
+
+        .about-text p {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .skills-container {
+            background: var(--bg-card);
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid var(--border-subtle);
+            box-shadow: 0 0 40px var(--shadow-glow);
+        }
+
+        .skill-category {
+            margin-bottom: 1.5rem;
+        }
+
+        .skill-category:last-child {
+            margin-bottom: 0;
+        }
+
+        .skill-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--accent-primary);
+            margin-bottom: 0.75rem;
+            font-weight: 600;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .skill-tag {
+            padding: 6px 12px;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-subtle);
+            border-radius: 6px;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            transition: all 0.3s ease;
+        }
+
+        .skill-tag:hover {
+            border-color: var(--accent-primary);
+            color: var(--accent-primary);
+            transform: translateY(-2px);
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 12px;
+            padding: 2rem;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+        }
+
+        .project-card:hover {
+            border-color: var(--accent-primary);
+            box-shadow: 0 8px 40px var(--shadow-glow);
+            transform: translateY(-5px);
+        }
+
+        .project-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .project-title {
+            font-family: 'Syne', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+        }
+
+        .project-description {
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .project-description ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .project-description li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .project-description li::before {
+            content: '▹';
+            position: absolute;
+            left: 0;
+            color: var(--accent-primary);
+            font-weight: bold;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .tech-badge {
+            padding: 4px 10px;
+            background: var(--bg-secondary);
+            border: 1px solid var(--accent-primary);
+            border-radius: 4px;
+            font-size: 0.7rem;
+            color: var(--accent-primary);
+            font-weight: 600;
+        }
+
+        .experience-timeline {
+            position: relative;
+            padding-left: 3rem;
+        }
+
+        .experience-timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(180deg, var(--accent-primary), var(--accent-secondary));
+        }
+
+        .experience-item {
+            position: relative;
+            margin-bottom: 3rem;
+            padding-bottom: 3rem;
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .experience-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .experience-item::before {
+            content: '';
+            position: absolute;
+            left: -3.5rem;
+            top: 0;
+            width: 16px;
+            height: 16px;
+            background: var(--accent-primary);
+            border: 3px solid var(--bg-primary);
+            border-radius: 50%;
+            box-shadow: 0 0 20px var(--shadow-glow);
+        }
+
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .experience-title {
+            font-family: 'Syne', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .experience-company {
+            color: var(--accent-secondary);
+            font-size: 1rem;
+            margin-top: 0.25rem;
+        }
+
+        .experience-date {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            white-space: nowrap;
+        }
+
+        .experience-description ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .experience-description li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.75rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        .experience-description li::before {
+            content: '▹';
+            position: absolute;
+            left: 0;
+            color: var(--accent-primary);
+            font-weight: bold;
+        }
+
+        .education-grid {
+            display: grid;
+            gap: 2rem;
+        }
+
+        .education-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-left: 4px solid var(--accent-primary);
+            border-radius: 8px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .education-card:hover {
+            box-shadow: 0 8px 40px var(--shadow-glow);
+            transform: translateX(5px);
+        }
+
+        .education-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .education-degree {
+            font-family: 'Syne', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .education-school {
+            color: var(--accent-secondary);
+            margin-top: 0.25rem;
+        }
+
+        .education-date {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            white-space: nowrap;
+        }
+
+        .education-details {
+            color: var(--text-secondary);
+            margin-top: 0.5rem;
+        }
+
+        .certifications-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .cert-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 8px;
+            padding: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .cert-card:hover {
+            border-color: var(--accent-primary);
+            box-shadow: 0 4px 20px var(--shadow-glow);
+        }
+
+        .cert-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .cert-info h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.25rem;
+        }
+
+        .cert-info p {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+        }
+
+        footer {
+            border-top: 1px solid var(--border-subtle);
+            padding: 3rem 2rem;
+            text-align: center;
+            color: var(--text-secondary);
+        }
+
+        .cta-section {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 12px;
+            padding: 3rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, var(--accent-primary) 0%, transparent 70%);
+            opacity: 0.05;
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .cta-section h2 {
+            font-family: 'Syne', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+            position: relative;
+        }
+
+        .cta-section p {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            position: relative;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-block;
+            font-size: 0.95rem;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+            color: var(--bg-primary);
+            border: none;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0, 255, 136, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-primary);
+            border: 1px solid var(--border-subtle);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--accent-primary);
+            color: var(--accent-primary);
+            transform: translateY(-3px);
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-header {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .section-number {
+                font-size: 1.5rem;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+
+            .experience-timeline {
+                padding-left: 2rem;
+            }
+
+            .experience-item::before {
+                left: -2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="glow-orb"></div>
+    <div class="glow-orb"></div>
+
+    <header>
+        <div class="header-content">
+            <div class="status-badge">
+                <span class="status-dot"></span>
+                Open to Opportunities
+            </div>
+            <h1>Ashmeet Singh</h1>
+            <p class="subtitle">Cybersecurity Professional | Penetration Testing | Vulnerability Research</p>
+            <div class="contact-links">
+                <a href="mailto:ashmeetsingh152@gmail.com">ashmeetsingh152@gmail.com</a>
+                <a href="tel:+12362689294">+1 (236) 268-9294</a>
+                <a href="https://linkedin.com/in/ashmeet-singh-" target="_blank">LinkedIn</a>
+                <a href="https://github.com/Ashmeet-21" target="_blank">GitHub</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <section class="section">
+            <div class="section-header">
+                <span class="section-number">01</span>
+                <h2 class="section-title">About</h2>
+            </div>
+            <div class="about-grid">
+                <div class="about-text">
+                    <p>Master of Cybersecurity student at Simon Fraser University with specialized expertise in penetration testing, vulnerability assessment, and secure system design. Passionate about uncovering security weaknesses and building robust defenses against emerging threats.</p>
+                    <p>My approach combines deep technical knowledge with practical, hands-on experience in CVE analysis, threat modeling, and security testing. I've successfully reproduced and documented 100+ real-world vulnerabilities, contributing to AI-driven security research and creating reproducible exploit validation environments.</p>
+                    <p>Currently seeking opportunities in cybersecurity roles where I can leverage my technical skills and research background to strengthen organizational security posture and contribute to innovative security solutions.</p>
+                </div>
+                <div class="skills-container">
+                    <div class="skill-category">
+                        <div class="skill-label">Security</div>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Penetration Testing</span>
+                            <span class="skill-tag">Vulnerability Assessment</span>
+                            <span class="skill-tag">CVE Analysis</span>
+                            <span class="skill-tag">Threat Modeling</span>
+                            <span class="skill-tag">OWASP Top 10</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <div class="skill-label">Tools</div>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Wireshark</span>
+                            <span class="skill-tag">Nmap</span>
+                            <span class="skill-tag">Metasploit</span>
+                            <span class="skill-tag">Burp Suite</span>
+                            <span class="skill-tag">Docker</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <div class="skill-label">Development</div>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Python</span>
+                            <span class="skill-tag">Java</span>
+                            <span class="skill-tag">JavaScript</span>
+                            <span class="skill-tag">React.js</span>
+                            <span class="skill-tag">SQL</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="section-header">
+                <span class="section-number">02</span>
+                <h2 class="section-title">Featured Projects</h2>
+            </div>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <h3 class="project-title">Golden Vulnerability Repository</h3>
+                    <div class="project-description">
+                        <ul>
+                            <li>Built autonomous multi-agent CVE processing system reproducing 100+ real-world vulnerabilities with 97% verified PoCs</li>
+                            <li>Dockerized vulnerable and patched environments, reducing setup time by 40% and enabling reproducible exploit validation</li>
+                            <li>Automated 8-stage CVE pipeline, reducing reproduction time to ~12 minutes per CVE and cutting manual effort by 60%</li>
+                            <li>Generated ground-truth vulnerability datasets across 15+ CWE categories to support AI-driven security research</li>
+                        </ul>
+                    </div>
+                    <div class="project-tech">
+                        <span class="tech-badge">CVE Analysis</span>
+                        <span class="tech-badge">Docker</span>
+                        <span class="tech-badge">Automation</span>
+                        <span class="tech-badge">Security Research</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <h3 class="project-title">Instagram Reels App</h3>
+                    <div class="project-description">
+                        <ul>
+                            <li>Designed secure full-stack web application featuring authentication, protected routing, and session handling</li>
+                            <li>Implemented RESTful APIs and scalable frontend architecture with centralized state management</li>
+                            <li>Integrated Firebase for real-time data synchronization and user authentication</li>
+                        </ul>
+                    </div>
+                    <div class="project-tech">
+                        <span class="tech-badge">React.js</span>
+                        <span class="tech-badge">Firebase</span>
+                        <span class="tech-badge">RESTful APIs</span>
+                        <span class="tech-badge">Authentication</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <h3 class="project-title">Movie Discovery Platform</h3>
+                    <div class="project-description">
+                        <ul>
+                            <li>Built responsive IMDB-style platform using React, Tailwind CSS, and TMDB API</li>
+                            <li>Deployed real-time search, sorting, pagination, bookmarking, and persistent local storage</li>
+                            <li>Integrated React Router DOM for seamless client-side navigation</li>
+                        </ul>
+                    </div>
+                    <div class="project-tech">
+                        <span class="tech-badge">React.js</span>
+                        <span class="tech-badge">Tailwind CSS</span>
+                        <span class="tech-badge">API Integration</span>
+                        <span class="tech-badge">Responsive Design</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <h3 class="project-title">Web-Based Spreadsheet Engine</h3>
+                    <div class="project-description">
+                        <ul>
+                            <li>Built browser-based spreadsheet with dynamic 2D grid, multi-sheet management, and formula parsing</li>
+                            <li>Designed DFS-based dependency resolution and infix stack-based expression evaluation</li>
+                            <li>Configured advanced formatting controls including font sizing, alignment, and styling</li>
+                        </ul>
+                    </div>
+                    <div class="project-tech">
+                        <span class="tech-badge">JavaScript</span>
+                        <span class="tech-badge">Algorithms</span>
+                        <span class="tech-badge">DOM Manipulation</span>
+                        <span class="tech-badge">Data Structures</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="section-header">
+                <span class="section-number">03</span>
+                <h2 class="section-title">Experience</h2>
+            </div>
+            <div class="experience-timeline">
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div>
+                            <h3 class="experience-title">Graduate Teaching Assistant</h3>
+                            <p class="experience-company">Simon Fraser University</p>
+                        </div>
+                        <span class="experience-date">Sep 2025 – Present</span>
+                    </div>
+                    <div class="experience-description">
+                        <ul>
+                            <li>Delivered weekly programming and cybersecurity labs to 200+ students, covering algorithms, debugging, and secure coding practices</li>
+                            <li>Evaluated 100+ assignments per term, providing detailed technical feedback and guidance on secure design principles</li>
+                            <li>Mentored students in structured problem-solving, debugging workflows, and secure software development</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div>
+                            <h3 class="experience-title">Software Engineering Intern</h3>
+                            <p class="experience-company">Pepcoding Education Pvt. Ltd.</p>
+                        </div>
+                        <span class="experience-date">Sep 2021 – Aug 2022</span>
+                    </div>
+                    <div class="experience-description">
+                        <ul>
+                            <li>Completed intensive training in data structures, algorithms, and secure software engineering workflows</li>
+                            <li>Built and debugged Java and web-based projects using modern development practices and version control</li>
+                            <li>Collaborated with development teams to implement features and resolve technical challenges</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="section-header">
+                <span class="section-number">04</span>
+                <h2 class="section-title">Education</h2>
+            </div>
+            <div class="education-grid">
+                <div class="education-card">
+                    <div class="education-header">
+                        <div>
+                            <h3 class="education-degree">Master of Cybersecurity</h3>
+                            <p class="education-school">Simon Fraser University, Burnaby, BC, Canada</p>
+                        </div>
+                        <span class="education-date">Sep 2025 – Jan 2027</span>
+                    </div>
+                    <p class="education-details">Specializing in penetration testing, vulnerability assessment, and secure system design</p>
+                </div>
+
+                <div class="education-card">
+                    <div class="education-header">
+                        <div>
+                            <h3 class="education-degree">B.Tech. Computer Science & Engineering</h3>
+                            <p class="education-school">Guru Gobind Singh Indraprastha University (GGSIPU), New Delhi, India</p>
+                        </div>
+                        <span class="education-date">Aug 2020 – Jun 2024</span>
+                    </div>
+                    <p class="education-details">CGPA: 9.2/10.0</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="section-header">
+                <span class="section-number">05</span>
+                <h2 class="section-title">Certifications</h2>
+            </div>
+            <div class="certifications-grid">
+                <div class="cert-card">
+                    <div class="cert-icon">🏆</div>
+                    <div class="cert-info">
+                        <h3>Salesforce Platform Administrator</h3>
+                        <p>Credential ID: 3068474 • Mar 2023</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="cta-section">
+            <h2>Let's Build Something Secure</h2>
+            <p>I'm currently seeking cybersecurity opportunities where I can contribute my skills in penetration testing, vulnerability research, and secure system design.</p>
+            <div class="cta-buttons">
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=ashmeetsingh152@gmail.com" target="_blank" class="btn btn-primary">Get In Touch</a>
+                <a href="https://linkedin.com/in/ashmeet-singh-" target="_blank" class="btn btn-secondary">View LinkedIn</a>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Ashmeet Singh. All rights reserved.</p>
+        <p style="margin-top: 0.5rem; font-size: 0.85rem;">Designed with security in mind.</p>
+    </footer>
+</body>
+</html>
